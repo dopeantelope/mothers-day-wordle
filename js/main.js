@@ -97,31 +97,31 @@ function resetBoard() {
 }
 
 function showStatsView(){
+    document.getElementById('modal').style.visibility = 'hidden'
     document.getElementById("game-board").innerHTML = ("");
-    let board = document.getElementById("game-board");
+    resetBoard();
+    let wordsArray=["l","o"]
+    let boxs =  document.getElementsByClassName("letter-box") 
+    for (var i = 0; i < boxs.length; i++){
+        //for(let i = 0; i< wordsArray.length; i++){
+           // console.log(wordsArray[i])
+            boxs[0].innerHTML= "F"
+            boxs[1].innerHTML= "U"
+            boxs[2].innerHTML= "N"
+            boxs[3].innerHTML= "N"
+            boxs[4].innerHTML= "Y"
+            boxs[5].innerHTML= "S"
+            boxs[6].innerHTML= "U"
+            boxs[7].innerHTML= "P"
+            boxs[8].innerHTML= "E"
+            boxs[9].innerHTML= "R"
+            boxs[10].innerHTML= "S"
+            boxs[11].innerHTML= "M"
+            boxs[12].innerHTML= "A"
+            boxs[13].innerHTML= "R"
+            boxs[14].innerHTML= "T"
 
-    for (let i = 0; i < 6; i++) {
-        let row = document.createElement("div")
-        row.className = "letter-row"
-
-        for (let j = 0; j < 5; j++) {
-            let box = document.createElement("div")
-            box.className = "letter-box"
-            row.appendChild(box)
-        }
-        board.appendChild(row)
-
-
-    }
-    
-    
-  
-
-    /**for (const box of document.getElementsByClassName("letter-box")) {
-        for(let i = 0; i< wordsArray.length; i++){
-            console.log(wordsArray[i])
-            box.innerHTML = wordsArray[i]
-        }**/
+       }
     }
 
 
