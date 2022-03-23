@@ -76,11 +76,11 @@ function deleteLetter() {
 }
 
 function nextLevel() {
-    gameCount = gameCount+1
-    console.log("inside next level" +gameCount);
+    gameCount = gameCount + 1
+    console.log("inside next level" + gameCount);
     guessesRemaining = 6;
     rightGuessString = WORDS[gameCount];
-    console.log("next word" +rightGuessString);
+    console.log("next word" + rightGuessString);
     currentGuess = [];
     nextLetter = 0;
     resetBoard();
@@ -96,33 +96,33 @@ function resetBoard() {
     }
 }
 
-function showStatsView(){
+function showStatsView() {
     document.getElementById('modal').style.visibility = 'hidden'
     document.getElementById("game-board").innerHTML = ("");
     resetBoard();
-    let wordsArray=["l","o"]
-    let boxs =  document.getElementsByClassName("letter-box") 
-    for (var i = 0; i < boxs.length; i++){
+    let wordsArray = ["l", "o"]
+    let boxs = document.getElementsByClassName("letter-box")
+    for (var i = 0; i < boxs.length; i++) {
         //for(let i = 0; i< wordsArray.length; i++){
-           // console.log(wordsArray[i])
-            boxs[0].innerHTML= "F"
-            boxs[1].innerHTML= "U"
-            boxs[2].innerHTML= "N"
-            boxs[3].innerHTML= "N"
-            boxs[4].innerHTML= "Y"
-            boxs[5].innerHTML= "S"
-            boxs[6].innerHTML= "U"
-            boxs[7].innerHTML= "P"
-            boxs[8].innerHTML= "E"
-            boxs[9].innerHTML= "R"
-            boxs[10].innerHTML= "S"
-            boxs[11].innerHTML= "M"
-            boxs[12].innerHTML= "A"
-            boxs[13].innerHTML= "R"
-            boxs[14].innerHTML= "T"
+        // console.log(wordsArray[i])
+        boxs[0].innerHTML = "F"
+        boxs[1].innerHTML = "U"
+        boxs[2].innerHTML = "N"
+        boxs[3].innerHTML = "N"
+        boxs[4].innerHTML = "Y"
+        boxs[5].innerHTML = "S"
+        boxs[6].innerHTML = "U"
+        boxs[7].innerHTML = "P"
+        boxs[8].innerHTML = "E"
+        boxs[9].innerHTML = "R"
+        boxs[10].innerHTML = "S"
+        boxs[11].innerHTML = "M"
+        boxs[12].innerHTML = "A"
+        boxs[13].innerHTML = "R"
+        boxs[14].innerHTML = "T"
 
-       }
     }
+}
 
 
 function checkGuess() {
@@ -180,22 +180,17 @@ function checkGuess() {
     }
 
     if (guessString === rightGuessString) {
-        document.getElementById('modal').style.visibility = 'visible'
-        if (gameCount <1){
-            console.log("this is the game count" +gameCount)
+        document.getElementById('win-modal').style.visibility = 'visible'
+        if (gameCount < 1) {
             document.getElementById("next-level-button").addEventListener("click", nextLevel)
+            document.getElementById("view-stats-button").style.visibility = "hidden"
+        }
+        else {
+            document.getElementById("next-level-button").style.visibility = "hidden"
+            document.getElementById("view-stats-button").style.visibility = "visible"
             document.getElementById("view-stats-button").addEventListener("click", showStatsView)
-        }
-            // make view stats button invisible
-        else{
-            console.log("game over")
-           //make next level button invisible
-           //make view stats button visible
-           document.getElementById("view-stats-button").addEventListener("click", showStatsView)
-        }
-      
 
-
+        }
         //add delay on modal
         // toastr.success("You guessed right! Game over! ")
         guessesRemaining = 0
@@ -206,8 +201,21 @@ function checkGuess() {
         nextLetter = 0;
 
         if (guessesRemaining === 0) {
-            toastr.error("You've run out of guesses! Game over!")
-            toastr.info(`The right word was: "${rightGuessString}"`)
+            document.getElementById('lose-modal').style.visibility = 'visible'
+            if (gameCount < 1) {
+                document.getElementById("next-level-button").addEventListener("click", nextLevel)
+                document.getElementById('actualWord').innerHTML = `The right word was: "${rightGuessString}"`
+                document.getElementById("view-stats-button").style.visibility = "hidden"
+            }
+            else {
+                document.getElementById("next-level-button").style.visibility = "hidden"
+                document.getElementById("view-stats-button").style.visibility = "visible"
+                document.getElementById('actualWord').innerHTML = `The right word was: "${rightGuessString}"`
+                document.getElementById("view-stats-button").addEventListener("click", showStatsView)
+
+            }
+            // toastr.error("You've run out of guesses! Game over!")
+            //toastr.info(`The right word was: "${rightGuessString}"`)
         }
     }
 }
