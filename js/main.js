@@ -85,11 +85,10 @@ function nextLevel() {
     currentGuess = [];
     nextLetter = 0;
     resetBoard();
-    //close modal
-    document.getElementById('id01').style.display = 'none'
+    //close modal -- ADD METHOD HERE
+    
 
 }
-
 function resetBoard() {
     //clear grid
     document.getElementById("game-board").innerHTML = ("");
@@ -99,76 +98,76 @@ function resetBoard() {
         elem.style.backgroundColor = "lightblue"
     }
 }
+function checkGuess () {
+  let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
+  let guessString = ''
+  let rightGuess = Array.from(rightGuessString)
 
-function checkGuess() {
-    let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
-    let guessString = ''
-    let rightGuess = Array.from(rightGuessString)
+  for (const val of currentGuess) {
+      guessString += val
+  }
 
-    for (const val of currentGuess) {
-        guessString += val
-    }
+  if (guessString.length != 5) {
+      toastr.error("Not enough letters!")
+      return
+  }
 
-    if (guessString.length != 5) {
-        toastr.error("Not enough letters!")
-        return
-    }
+  if (!WORDS.includes(guessString)) {
+      toastr.error("Word not in list!")
+      return
+  }
 
-    if (!WORDS.includes(guessString)) {
-        toastr.error("Word not in list!")
-        return
-    }
+  
+  for (let i = 0; i < 5; i++) {
+      let letterColor = ''
+      let box = row.children[i]
+      let letter = currentGuess[i]
+      
+      let letterPosition = rightGuess.indexOf(currentGuess[i])
+      // is letter in the correct guess
+      if (letterPosition === -1) {
+          letterColor = '#666'
+      } else {
+          // now, letter is definitely in word
+          // if letter index and right guess index are the same
+          // letter is in the right position 
+          if (currentGuess[i] === rightGuess[i]) {
+              // shade #71C562 
+              letterColor = '#71C562'
+          } else {
+              // shade box #FFD700
+              letterColor = '#FFD700'
+          }
 
+          rightGuess[letterPosition] = "#"
+      }
 
-    for (let i = 0; i < 5; i++) {
-        let letterColor = ''
-        let box = row.children[i]
-        let letter = currentGuess[i]
+      let delay = 600 * i
+      setTimeout(()=> {
+        //flip box
+        animateCSS(box, 'flipInY')
+        //shade box
+        box.style.backgroundColor = letterColor
+        shadeKeyBoard(letter, letterColor)
+      }, delay)
+  }
 
-        let letterPosition = rightGuess.indexOf(currentGuess[i])
-        // is letter in the correct guess
-        if (letterPosition === -1) {
-            letterColor = '#666'
-        } else {
-            // now, letter is definitely in word
-            // if letter index and right guess index are the same
-            // letter is in the right position 
-            if (currentGuess[i] === rightGuess[i]) {
-                // shade #71C562 
-                letterColor = '#71C562'
-            } else {
-                // shade box #FFD700
-                letterColor = '#FFD700'
-            }
+  if (guessString === rightGuessString) {
+      console.log("wooo")
+      let modalVis = document.getElementById('modal').style.visibility='visible'
+     // toastr.success("You guessed right! Game over! ")
+      guessesRemaining = 0
+      return
+  } else {
+      guessesRemaining -= 1;
+      currentGuess = [];
+      nextLetter = 0;
 
-            rightGuess[letterPosition] = "#"
-        }
-
-        let delay = 600 * i
-        setTimeout(() => {
-            //flip box
-            animateCSS(box, 'flipInY')
-            //shade box
-            box.style.backgroundColor = letterColor
-            shadeKeyBoard(letter, letterColor)
-        }, delay)
-    }
-
-    if (guessString === rightGuessString) {
-        document.getElementById('id01').style.display = 'block'
-        // toastr.success("You guessed right! Game over! ")
-        guessesRemaining = 0
-        return
-    } else {
-        guessesRemaining -= 1;
-        currentGuess = [];
-        nextLetter = 0;
-
-        if (guessesRemaining === 0) {
-            toastr.error("You've run out of guesses! Game over!")
-            toastr.info(`The right word was: "${rightGuessString}"`)
-        }
-    }
+      if (guessesRemaining === 0) {
+          toastr.error("You've run out of guesses! Game over!")
+          toastr.info(`The right word was: "${rightGuessString}"`)
+      }
+  }
 }
 
 function shadeKeyBoard(letter, color) {

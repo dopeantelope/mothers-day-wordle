@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	</head>
 	<body>
 		<h1>WORDLE</h1>
@@ -61,14 +60,12 @@
       </div>
   </div>
 
-  <div id="id01" class="w3-modal">
-    <div class="w3-modal-content">
-      <div class="w3-container">
-        <span onclick="document.getElementById('id01').style.display='none'"
-        class="w3-button w3-display-topright">&times;</span>
-        <p>YOU WIN!!!!</p>
+ 
+  <div id="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h1>You win!</h1>
         <button id="next-level-button">Next Level</button>
-      </div>
     </div>
   </div>
 
