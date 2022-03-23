@@ -1,8 +1,8 @@
 export const WORDS = [
-    'happy',
-    'mummy',
-    'which',
-    'there',
-    'their',
-    'about'
+    'funny',
+    'smart',
+    'great',
+    'super',
+    'loved',
+    'audio'
 ]
