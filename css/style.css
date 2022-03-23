@@ -32,7 +32,8 @@ h1 {
 }
 
 .filled-box {
-  border: 2px solid #444;
+  border: none;
+  padding: 2px;
 }
 
 .letter-row {
@@ -67,7 +68,7 @@ button {
   margin: 0 2px;
   cursor: pointer;
   text-transform: uppercase;
-  background-color: lightblue;
+  background-color: rgb(224, 224, 224);
 }
 
 #modal {
@@ -93,19 +94,4 @@ button {
   padding: 1rem 1.5rem;
   width: 24rem;
   border-radius: 0.5rem;
-}
-
-.close-button {
-  float: right;
-  width: 1.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-  border-radius: 0.25rem;
-  background-color: white;
-  color: black;
-}
-
-.close-button:hover {
-  background-color: rgb(243, 243, 243);
 }

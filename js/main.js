@@ -85,7 +85,7 @@ function nextLevel() {
     currentGuess = [];
     nextLetter = 0;
     resetBoard();
-    //close modal -- ADD METHOD HERE
+    document.getElementById('modal').style.visibility='hidden'
     
 
 }
@@ -95,7 +95,7 @@ function resetBoard() {
     initBoard();
     //reset colour of keyboard
     for (const elem of document.getElementsByClassName("keyboard-button")) {
-        elem.style.backgroundColor = "lightblue"
+        elem.style.backgroundColor = "rgb(243, 243, 243)"
     }
 }
 function checkGuess () {
@@ -154,7 +154,8 @@ function checkGuess () {
 
   if (guessString === rightGuessString) {
       console.log("wooo")
-      let modalVis = document.getElementById('modal').style.visibility='visible'
+      document.getElementById('modal').style.visibility='visible'
+      //add delay on modal
      // toastr.success("You guessed right! Game over! ")
       guessesRemaining = 0
       return
