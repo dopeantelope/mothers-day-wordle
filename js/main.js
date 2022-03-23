@@ -4,7 +4,8 @@ const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = WORDS[0]
+let gameCount = 0;
+let rightGuessString = WORDS[gameCount]
 console.log(rightGuessString)
 
 function initBoard() {
@@ -76,6 +77,16 @@ function deleteLetter () {
   nextLetter -= 1
 }
 
+function nextLevel(){
+    rightGuessString= WORDS[gameCount++];
+    console.log(rightGuessString);
+    resetBoard();
+}
+
+function resetBoard(){
+    //clear grid
+    //clear keyboard
+}
 function checkGuess () {
   let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
   let guessString = ''
@@ -133,6 +144,7 @@ function checkGuess () {
   if (guessString === rightGuessString) {
       console.log("wooo")
       document.getElementById('id01').style.display='block'
+      
      // toastr.success("You guessed right! Game over! ")
       guessesRemaining = 0
       return
@@ -166,6 +178,9 @@ function shadeKeyBoard(letter, color) {
   }
 }
 
+document.getElementById("next-level-button").addEventListener("click", (e)=>{
+    nextLevel();
+})
 document.getElementById("keyboard-cont").addEventListener("click", (e) => {
   const target = e.target
   
