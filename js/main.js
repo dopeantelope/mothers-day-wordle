@@ -132,7 +132,7 @@ function checkGuess () {
 
   if (guessString === rightGuessString) {
       console.log("wooo")
-      document.getElementById('id01').style.display='block'
+      let modalVis = document.getElementById('modal').style.visibility='visible'
      // toastr.success("You guessed right! Game over! ")
       guessesRemaining = 0
       return
