@@ -4,7 +4,7 @@ const NUMBER_OF_GUESSES = 6;
 let guessesRemaining = NUMBER_OF_GUESSES;
 let currentGuess = [];
 let nextLetter = 0;
-let rightGuessString = WORDS[Math.floor(Math.random() * WORDS.length)]
+let rightGuessString = WORDS[0]
 console.log(rightGuessString)
 
 function initBoard() {
@@ -131,7 +131,9 @@ function checkGuess () {
   }
 
   if (guessString === rightGuessString) {
-      toastr.success("You guessed right! Game over!")
+      console.log("wooo")
+      let modalVis = document.getElementById('modal').style.visibility='visible'
+     // toastr.success("You guessed right! Game over! ")
       guessesRemaining = 0
       return
   } else {
