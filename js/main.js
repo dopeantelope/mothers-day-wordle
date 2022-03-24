@@ -150,12 +150,12 @@ function showStatsView() {
         boxs[28].innerHTML = "E"
         boxs[29].innerHTML = "D"
     }
-    let delay = 600 * i
+    let delay = 600 
         setTimeout(() => {
             //flip box
-            animateCSS(box, 'flipInY')
+            animateCSS(boxs[0], 'flipInY')
             //shade box
-            box.style.backgroundColor = "green"
+            boxs[0].style.backgroundColor = "green"
         }, delay)
 }
 
