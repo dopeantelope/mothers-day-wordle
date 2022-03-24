@@ -3,11 +3,27 @@ body {
   font-family: 'Roboto'
 }
 
-h1 {
+h1, h2, h3 {
   display: flex;
   justify-content: center;
   font-size: 2rem;
   padding: 2rem 0;
+}
+
+h2, h3 {
+  color: rgb(255, 136, 162)
+}
+
+h3 {
+  padding: 0;
+  font-size: 1rem;
+}
+
+#actualWord {
+  color: white;
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
+  margin-top: -2rem;
 }
 
 #game-board {
@@ -40,6 +56,13 @@ h1 {
   display: flex;
 }
 
+.lose-modal-content > h1 {
+  padding-bottom: 1rem;
+}
+
+#actualWord {
+  margin-bottom: 1rem;
+}
 
 #keyboard-cont {
   margin: 1rem 0;
@@ -71,6 +94,25 @@ button {
   background-color: rgb(224, 224, 224);
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#next-level-button, #view-stats-button {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 18px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#view-stats-button {
+  visibility: hidden;
+}
+
 #win-modal, #lose-modal {
   position: fixed;
   left: 0;
@@ -85,22 +127,22 @@ button {
 }
 
 .win-modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: #71C562;
   color: white;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   padding: 1rem 1.5rem;
   width: 24rem;
   border-radius: 0.5rem;
 }
 .lose-modal-content {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: red;
+  background-color: rgb(196, 89, 84);
   color: white;
   padding: 1rem 1.5rem;
   width: 24rem;
