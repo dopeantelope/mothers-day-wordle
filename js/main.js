@@ -149,8 +149,14 @@ function showStatsView() {
         boxs[27].innerHTML = "V"
         boxs[28].innerHTML = "E"
         boxs[29].innerHTML = "D"
-
     }
+    let delay = 600 * i
+        setTimeout(() => {
+            //flip box
+            animateCSS(box, 'flipInY')
+            //shade box
+            box.style.backgroundColor = "green"
+        }, delay)
 }
 
 
@@ -183,6 +189,7 @@ function checkGuess() {
         // is letter in the correct guess
         if (letterPosition === -1) {
             letterColor = '#666'
+            removeBorder()
         } else {
             // now, letter is definitely in word
             // if letter index and right guess index are the same
@@ -190,9 +197,11 @@ function checkGuess() {
             if (currentGuess[i] === rightGuess[i]) {
                 // shade #71C562 
                 letterColor = '#71C562'
+                removeBorder()
             } else {
                 // shade box #FFD700
                 letterColor = '#FFD700'
+                removeBorder()
             }
 
             rightGuess[letterPosition] = "#"
@@ -247,7 +256,10 @@ function checkGuess() {
         }
     }
 }
-
+function removeBorder(){
+    for (const elem of document.getElementsByClassName("filled-box")) {
+        elem.style.border = "none";}
+}
 function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
