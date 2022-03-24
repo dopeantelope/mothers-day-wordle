@@ -258,7 +258,9 @@ function checkGuess() {
 }
 function removeBorder(){
     for (const elem of document.getElementsByClassName("filled-box")) {
-        elem.style.border = "none";}
+        elem.style.border = "none";
+        elem.style.padding = "2px"
+    }
 }
 function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {

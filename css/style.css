@@ -47,9 +47,6 @@ h3 {
   text-transform: uppercase;
 }
 
-.filled-box {
-  padding: 2px;
-}
 
 .letter-row {
   display: flex;
