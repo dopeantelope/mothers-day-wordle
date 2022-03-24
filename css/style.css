@@ -100,17 +100,13 @@ button {
   margin: 0 auto;
 }
 
-#next-level-button, #view-stats-button {
+#next-level-button, #next-level-lose-button {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   font-size: 18px;
   padding: 10px;
   cursor: pointer;
-}
-
-#view-stats-button {
-  visibility: hidden;
 }
 
 #win-modal, #lose-modal {
