@@ -115,48 +115,54 @@ function showStatsView() {
     document.getElementById('lose-modal').style.visibility = 'hidden'
     document.getElementById("game-board").innerHTML = ("");
     resetBoard();
-    let boxs = document.getElementsByClassName("letter-box")
-    for (var i = 0; i < boxs.length; i++) {
+    let boxes = document.getElementsByClassName("letter-box")
+    console.log(boxes.length);
+    for (var i = 0; i < boxes.length; i++) {
         //for(let i = 0; i< wordsArray.length; i++){
         // console.log(wordsArray[i])
-        boxs[0].innerHTML = "F"
-        boxs[1].innerHTML = "U"
-        boxs[2].innerHTML = "N"
-        boxs[3].innerHTML = "N"
-        boxs[4].innerHTML = "Y"
-        boxs[5].innerHTML = "S"
-        boxs[6].innerHTML = "M"
-        boxs[7].innerHTML = "A"
-        boxs[8].innerHTML = "R"
-        boxs[9].innerHTML = "T"
-        boxs[10].innerHTML = "G"
-        boxs[11].innerHTML = "R"
-        boxs[12].innerHTML = "E"
-        boxs[13].innerHTML = "A"
-        boxs[14].innerHTML = "T"
-        boxs[15].innerHTML = "S"
-        boxs[16].innerHTML = "U"
-        boxs[17].innerHTML = "P"
-        boxs[18].innerHTML = "E"
-        boxs[19].innerHTML = "R"
-        boxs[20].innerHTML = "I"
-        boxs[21].innerHTML = "D"
-        boxs[22].innerHTML = "E"
-        boxs[23].innerHTML = "A"
-        boxs[24].innerHTML = "L"
-        boxs[25].innerHTML = "L"
-        boxs[26].innerHTML = "O"
-        boxs[27].innerHTML = "V"
-        boxs[28].innerHTML = "E"
-        boxs[29].innerHTML = "D"
-    }
-    let delay = 600 
-        setTimeout(() => {
+        boxes[0].innerHTML = "F"
+        boxes[1].innerHTML = "U"
+        boxes[2].innerHTML = "N"
+        boxes[3].innerHTML = "N"
+        boxes[4].innerHTML = "Y"
+        boxes[5].innerHTML = "S"
+        boxes[6].innerHTML = "M"
+        boxes[7].innerHTML = "A"
+        boxes[8].innerHTML = "R"
+        boxes[9].innerHTML = "T"
+        boxes[10].innerHTML = "G"
+        boxes[11].innerHTML = "R"
+        boxes[12].innerHTML = "E"
+        boxes[13].innerHTML = "A"
+        boxes[14].innerHTML = "T"
+        boxes[15].innerHTML = "S"
+        boxes[16].innerHTML = "U"
+        boxes[17].innerHTML = "P"
+        boxes[18].innerHTML = "E"
+        boxes[19].innerHTML = "R"
+        boxes[20].innerHTML = "I"
+        boxes[21].innerHTML = "D"
+        boxes[22].innerHTML = "E"
+        boxes[23].innerHTML = "A"
+        boxes[24].innerHTML = "L"
+        boxes[25].innerHTML = "L"
+        boxes[26].innerHTML = "O"
+        boxes[27].innerHTML = "V"
+        boxes[28].innerHTML = "E"
+        boxes[29].innerHTML = "D"
+        
+        for(let i = 0; i < boxes.length; i++) {
+          let delay = 600 
+          setTimeout(() => {
             //flip box
-            animateCSS(boxs[0], 'flipInY')
+            animateCSS(boxes[i], 'flipInY')
             //shade box
-            boxs[0].style.backgroundColor = "green"
-        }, delay)
+            boxes[i].style.backgroundColor = "#71C562"
+            boxes[i].style.border = "none"
+            boxes[i].style.padding = "2px"
+          }, delay)
+    }
+}
 }
 
 
@@ -243,7 +249,7 @@ function checkGuess() {
             setTimeout(() => {
                 document.getElementById('lose-modal').style.visibility = 'visible'
             }, modalDelay)
-            if (gameCount < 2) {
+            if (gameCount < 1) {
                 document.getElementById('actualWord').innerHTML = `The correct word was: ${rightGuessString.toUpperCase()}`
                 document.getElementById("next-level-lose-button").innerText = "Next Level"
                 document.getElementById("next-level-lose-button").addEventListener("click", nextLevel)
@@ -256,6 +262,7 @@ function checkGuess() {
         }
     }
 }
+
 function removeBorder(){
     for (const elem of document.getElementsByClassName("filled-box")) {
         elem.style.border = "none";
