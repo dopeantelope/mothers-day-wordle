@@ -117,53 +117,44 @@ function showStatsView() {
     resetBoard();
     let boxes = document.getElementsByClassName("letter-box")
     console.log(boxes.length);
-    for (var i = 0; i < boxes.length; i++) {
-        //for(let i = 0; i< wordsArray.length; i++){
-        // console.log(wordsArray[i])
-        boxes[0].innerHTML = "F"
-        boxes[1].innerHTML = "U"
-        boxes[2].innerHTML = "N"
-        boxes[3].innerHTML = "N"
-        boxes[4].innerHTML = "Y"
-        boxes[5].innerHTML = "S"
-        boxes[6].innerHTML = "M"
-        boxes[7].innerHTML = "A"
-        boxes[8].innerHTML = "R"
-        boxes[9].innerHTML = "T"
-        boxes[10].innerHTML = "G"
-        boxes[11].innerHTML = "R"
-        boxes[12].innerHTML = "E"
-        boxes[13].innerHTML = "A"
-        boxes[14].innerHTML = "T"
-        boxes[15].innerHTML = "S"
-        boxes[16].innerHTML = "U"
-        boxes[17].innerHTML = "P"
-        boxes[18].innerHTML = "E"
-        boxes[19].innerHTML = "R"
-        boxes[20].innerHTML = "I"
-        boxes[21].innerHTML = "D"
-        boxes[22].innerHTML = "E"
-        boxes[23].innerHTML = "A"
-        boxes[24].innerHTML = "L"
-        boxes[25].innerHTML = "L"
-        boxes[26].innerHTML = "O"
-        boxes[27].innerHTML = "V"
-        boxes[28].innerHTML = "E"
-        boxes[29].innerHTML = "D"
-        
-        for(let i = 0; i < boxes.length; i++) {
-          let delay = 600 
-          setTimeout(() => {
-            //flip box
-            animateCSS(boxes[i], 'flipInY')
-            //shade box
-            boxes[i].style.backgroundColor = "#71C562"
-            boxes[i].style.border = "none"
-            boxes[i].style.padding = "2px"
-          }, delay)
+    
+    let wordsArray = [];
+    let adjectives = ['funny', 'smart', 'great', 'super', 'ideal', 'loved'];
+    
+    for (let i = 0; i < adjectives.length; i++){
+      for(let j = 0; j < 5; j++){
+        wordsArray.push(adjectives[i][j])
+      }
     }
-}
-}
+    console.log(wordsArray);
+    
+    for (let i = 0; i < boxes.length; i++) {
+      boxes[i].innerHTML = wordsArray[i];
+    }
+    
+    for(let i = 0; i < column1.length; i++) {
+      let delay = 600 
+      setTimeout(() => {
+        //flip box
+        animateCSS(column1[i], 'flipInY')
+        //shade box
+        column1[i].style.backgroundColor = "#71C562"
+        column1[i].style.border = "none"
+        column1[i].style.padding = "2px"
+      }, delay)
+    }
+      for(let i = 0; i < column2.length; i++) {
+        let delay = 1200 
+        setTimeout(() => {
+          //flip box
+          animateCSS(column2[i], 'flipInY')
+          //shade box
+          column2[i].style.backgroundColor = "#71C562"
+          column2[i].style.border = "none"
+          column2[i].style.padding = "2px"
+        }, delay)
+      }
+} 
 
 
 function checkGuess() {
