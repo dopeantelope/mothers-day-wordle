@@ -103,7 +103,7 @@ function resetBoard() {
 function showStatsView() {
     // Text on stats page
     document.querySelector("h1").innerText = "YOU ARE"
-    let modalDelay = 3000
+    let modalDelay = 3600
     setTimeout(() => {
         document.querySelector("h2").innerText = "HAPPY MOTHERS DAY"
     }, modalDelay)
@@ -142,7 +142,7 @@ function getColumns(startPosition, boxes, delay) {
     for (let i = startPosition; i < boxes.length; i += 5) {
         setTimeout(() => {
             boxes[i].innerHTML = wordsArray[i]
-        }, delay)
+        })
         //get colour and flip animation
         column.push(boxes[i]);
         adjectiveAnimation(column, delay)
@@ -226,7 +226,7 @@ function checkGuess() {
         setTimeout(() => {
             document.getElementById('win-modal').style.visibility = 'visible'
         }, modalDelay)
-        if (gameCount < 1) {
+        if (gameCount < 5) {
             document.getElementById("next-level-button").innerText = "Next Level"
             document.getElementById("next-level-button").addEventListener("click", nextLevel)
         }
@@ -247,7 +247,7 @@ function checkGuess() {
             setTimeout(() => {
                 document.getElementById('lose-modal').style.visibility = 'visible'
             }, modalDelay)
-            if (gameCount < 1) {
+            if (gameCount < 5) {
                 document.getElementById('actualWord').innerHTML = `The correct word was: ${rightGuessString.toUpperCase()}`
                 document.getElementById("next-level-lose-button").innerText = "Next Level"
                 document.getElementById("next-level-lose-button").addEventListener("click", nextLevel)
