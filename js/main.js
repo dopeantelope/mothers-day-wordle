@@ -6,6 +6,8 @@ let currentGuess = [];
 let nextLetter = 0;
 let gameCount = 0;
 let rightGuessString = WORDS[gameCount]
+let wordsArray = [];
+
 
 function initBoard() {
     let board = document.getElementById("game-board");
@@ -114,48 +116,53 @@ function showStatsView() {
     document.getElementById('win-modal').style.visibility = 'hidden'
     document.getElementById('lose-modal').style.visibility = 'hidden'
     document.getElementById("game-board").innerHTML = ("");
+
+    //create board
     resetBoard();
     let boxes = document.getElementsByClassName("letter-box")
-    console.log(boxes.length);
-    
-    let wordsArray = [];
-    let adjectives = ['funny', 'smart', 'great', 'super', 'ideal', 'loved'];
-    
-    for (let i = 0; i < adjectives.length; i++){
-      for(let j = 0; j < 5; j++){
-        wordsArray.push(adjectives[i][j])
-      }
-    }
-    console.log(wordsArray);
-    
-    for (let i = 0; i < boxes.length; i++) {
-      boxes[i].innerHTML = wordsArray[i];
-    }
-    
-    for(let i = 0; i < column1.length; i++) {
-      let delay = 600 
-      setTimeout(() => {
-        //flip box
-        animateCSS(column1[i], 'flipInY')
-        //shade box
-        column1[i].style.backgroundColor = "#71C562"
-        column1[i].style.border = "none"
-        column1[i].style.padding = "2px"
-      }, delay)
-    }
-      for(let i = 0; i < column2.length; i++) {
-        let delay = 1200 
-        setTimeout(() => {
-          //flip box
-          animateCSS(column2[i], 'flipInY')
-          //shade box
-          column2[i].style.backgroundColor = "#71C562"
-          column2[i].style.border = "none"
-          column2[i].style.padding = "2px"
-        }, delay)
-      }
-} 
 
+    //make wordArray
+    let adjectives = ['funny', 'smart', 'great', 'super', 'ideal', 'loved'];
+    for (let i = 0; i < adjectives.length; i++) {
+        for (let j = 0; j < 5; j++) {
+            wordsArray.push(adjectives[i][j])
+        }
+    }
+    //populateColumns
+    getColumns(0, boxes, 600);
+    getColumns(1, boxes, 1200);
+    getColumns(2, boxes, 1800);
+    getColumns(3, boxes, 2400);
+    getColumns(4, boxes, 3000);
+}
+
+function getColumns(startPosition, boxes, delay) {
+    let column = [];
+    //get letters
+    for (let i = startPosition; i < boxes.length; i += 5) {
+        setTimeout(() => {
+            boxes[i].innerHTML = wordsArray[i]
+        }, delay)
+        //get colour and flip animation
+        column.push(boxes[i]);
+        adjectiveAnimation(column, delay)
+    }
+}
+
+function adjectiveAnimation(column, delay) {
+    for (let i = 0; i < column.length; i++) {
+        setTimeout(() => {
+            //flip box
+            animateCSS(column[i], 'flipInY')
+            //shade box
+            column[i].style.backgroundColor = "#71C562"
+            column[i].style.border = "none"
+            column[i].style.padding = "2px"
+            //add letter
+        }, delay)
+    }
+
+}
 
 function checkGuess() {
     let row = document.getElementsByClassName("letter-row")[6 - guessesRemaining]
@@ -254,7 +261,7 @@ function checkGuess() {
     }
 }
 
-function removeBorder(){
+function removeBorder() {
     for (const elem of document.getElementsByClassName("filled-box")) {
         elem.style.border = "none";
         elem.style.padding = "2px"
