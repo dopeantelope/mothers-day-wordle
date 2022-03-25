@@ -271,14 +271,13 @@ function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor === '#71C562') {
+            if (oldColor == 'rgb(113, 197, 98)') {
                 return
             }
-
-            if (oldColor === '#FFD700' && color !== '#71C562') {
+            if (oldColor == 'rgb(255, 215, 0)' && color != 'rgb(113,197,98)') {
+                console.log("hi")
                 return
             }
-
             elem.style.backgroundColor = color
             break
         }
