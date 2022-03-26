@@ -122,7 +122,7 @@ function showStatsView() {
     let boxes = document.getElementsByClassName("letter-box")
 
     //make wordArray
-    let adjectives = ['funny', 'smart', 'great', 'super', 'ideal', 'loved'];
+    let adjectives = ['funny', 'loyal', 'great', 'super', 'elite', 'loved'];
     for (let i = 0; i < adjectives.length; i++) {
         for (let j = 0; j < 5; j++) {
             wordsArray.push(adjectives[i][j])
