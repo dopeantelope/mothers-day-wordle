@@ -1,7 +1,6 @@
 
 body {
   font-family: 'Roboto';
-  overflow: hidden;
 }
 
 h1, h2, h3 {
@@ -90,10 +89,14 @@ button {
   font-size: 1rem;
   font-weight: 700;
   margin: 0 2px;
-  padding: 0.75rem;
+  padding: 0.8rem;
   cursor: pointer;
   text-transform: uppercase;
   background-color: rgb(224, 224, 224);
+}
+
+.eye {
+  padding: 0 0.95rem;
 }
 
 .del {
@@ -155,9 +158,12 @@ button {
   border-radius: 0.5rem;
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 500px) {
   .keyboard-button {
     padding: 1rem 0.5rem;
+  }
+  .eye {
+    padding: 1rem 0.75rem;
   }
   .win-modal-content, .lose-modal-content {
     top: 50%;
