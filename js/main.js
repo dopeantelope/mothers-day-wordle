@@ -225,7 +225,7 @@ function checkGuess() {
         setTimeout(() => {
             document.getElementById('win-modal').style.visibility = 'visible'
         }, modalDelay)
-        if (gameCount < 1) {
+        if (gameCount < 5) {
             document.getElementById("next-level-button").innerText = "Next Level"
             document.getElementById("next-level-button").addEventListener("click", nextLevel)
         }
@@ -246,7 +246,7 @@ function checkGuess() {
             setTimeout(() => {
                 document.getElementById('lose-modal').style.visibility = 'visible'
             }, modalDelay)
-            if (gameCount < 1) {
+            if (gameCount < 5) {
                 document.getElementById('actualWord').innerHTML = `The correct word was: ${rightGuessString.toUpperCase()}`
                 document.getElementById("next-level-lose-button").innerText = "Next Level"
                 document.getElementById("next-level-lose-button").addEventListener("click", nextLevel)
@@ -277,8 +277,12 @@ function shadeKeyBoard(letter, color) {
     }
 }
 
+document.addEventListener('dblclick', function (event) {
+    event.preventDefault();
+}, { passive: false })
 
 document.getElementById("keyboard-cont").addEventListener("click", (e) => {
+
     const target = e.target
 
     if (!target.classList.contains("keyboard-button")) {
