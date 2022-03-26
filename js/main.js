@@ -261,13 +261,16 @@ function checkGuess() {
 }
 
 function shadeKeyBoard(letter, color) {
+    console.log("hereee" +color)
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
             let oldColor = elem.style.backgroundColor
-            if (oldColor == 'rgb(113, 197, 98)') {
+            console.log("oldcolor" +oldColor)
+            console.log("color" + color)
+            if (oldColor === 'rgb(113, 197, 98)') {
                 return
             }
-            if (oldColor == 'rgb(255, 215, 0)' && color != 'rgb(113,197,98)') {
+            if (oldColor === 'rgb(255, 215, 0)' && color !== '#71C562') {
                 console.log("hi")
                 return
             }
