@@ -193,7 +193,6 @@ function checkGuess() {
         // is letter in the correct guess
         if (letterPosition === -1) {
             letterColor = '#666'
-            removeBorder()
         } else {
             // now, letter is definitely in word
             // if letter index and right guess index are the same
@@ -201,11 +200,9 @@ function checkGuess() {
             if (currentGuess[i] === rightGuess[i]) {
                 // shade #71C562 
                 letterColor = '#71C562'
-                removeBorder()
             } else {
                 // shade box #FFD700
                 letterColor = '#FFD700'
-                removeBorder()
             }
 
             rightGuess[letterPosition] = "#"
@@ -217,6 +214,8 @@ function checkGuess() {
             animateCSS(box, 'flipInY')
             //shade box
             box.style.backgroundColor = letterColor
+            box.style.border = "none"
+            box.style.padding = "2px"
             shadeKeyBoard(letter, letterColor)
         }, delay)
     }
@@ -226,7 +225,7 @@ function checkGuess() {
         setTimeout(() => {
             document.getElementById('win-modal').style.visibility = 'visible'
         }, modalDelay)
-        if (gameCount < 5) {
+        if (gameCount < 1) {
             document.getElementById("next-level-button").innerText = "Next Level"
             document.getElementById("next-level-button").addEventListener("click", nextLevel)
         }
@@ -247,7 +246,7 @@ function checkGuess() {
             setTimeout(() => {
                 document.getElementById('lose-modal').style.visibility = 'visible'
             }, modalDelay)
-            if (gameCount < 5) {
+            if (gameCount < 1) {
                 document.getElementById('actualWord').innerHTML = `The correct word was: ${rightGuessString.toUpperCase()}`
                 document.getElementById("next-level-lose-button").innerText = "Next Level"
                 document.getElementById("next-level-lose-button").addEventListener("click", nextLevel)
@@ -261,12 +260,6 @@ function checkGuess() {
     }
 }
 
-function removeBorder() {
-    for (const elem of document.getElementsByClassName("filled-box")) {
-        elem.style.border = "none";
-        elem.style.padding = "2px"
-    }
-}
 function shadeKeyBoard(letter, color) {
     for (const elem of document.getElementsByClassName("keyboard-button")) {
         if (elem.textContent === letter) {
