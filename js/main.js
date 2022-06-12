@@ -107,9 +107,6 @@ function showStatsView() {
     setTimeout(() => {
         document.querySelector("h2").innerText = "HAPPY MOTHERS DAY"
     }, modalDelay)
-    setTimeout(() => {
-        document.querySelector("h3").innerText = "Love, George x"
-    }, modalDelay)
 
     // modal
     document.querySelector("#keyboard-cont").style.display = 'none'
