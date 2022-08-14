@@ -1,9 +1,9 @@
 # Mother's Day Wordle
 There are six levels of wordle, each word being an adjective to describe mom. Upon finishing the sixth level, when 'view stats' is clicked the game board populates with the six adjectives with the green 'correct letter' animation. Once the animation has ended, "Happy Mothers Day" appears underneath.
 
-**Link to project:** https://timedwordle.netlify.app
+**Link to project:** https://mdwordle.netlify.app
 
-<a href="https://timedwordle.netlify.app" target="_blank"><img src="images/Screenshot 2022-07-13 at 19.32.02.png" alt="screenshot of timed wordle"/></a>
+[Alt Text](https://i.ibb.co/wcJ8bvx/Screenshot-2022-08-14-at-21-54-27.png)
 
 ## How It's Made:
 
