@@ -3,7 +3,7 @@ There are six levels of wordle, each word being an adjective to describe mom. Up
 
 **Link to project:** https://mdwordle.netlify.app
 
-[Alt Text](https://i.ibb.co/wcJ8bvx/Screenshot-2022-08-14-at-21-54-27.png)
+![Alt Text](https://i.ibb.co/wcJ8bvx/Screenshot-2022-08-14-at-21-54-27.png)
 
 ## How It's Made:
 
