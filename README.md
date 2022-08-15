@@ -3,7 +3,7 @@ Disguised as an everyday wordle, there are six levels with each word being an ad
 
 **Link to project:** https://mdwordle.netlify.app
 
-![Alt Text](https://i.ibb.co/wcJ8bvx/Screenshot-2022-08-14-at-21-54-27.png)
+![Alt Text](https://i.ibb.co/pWb6vzJ/Screenshot-2022-08-14-at-21-54-27-1.jpg)
 
 ## How It's Made:
 
