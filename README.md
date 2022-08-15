@@ -1,5 +1,5 @@
 # Mother's Day Wordle
-Disguised as an everyday wordle, there are six levels with each word being an adjective to describe mom. Upon finishing the sixth level, when 'view stats' is clicked the game board populates with the six adjectives with the green 'correct letter' animation. Once the animation has ended, "Happy Mothers Day" appears underneath.
+This was made for my mum for Mother's Day due to her love for Wordle. Disguised as an everyday Wordle, there are six levels with each word being an adjective to describe my mum. Upon finishing the sixth level, when 'view stats' is clicked the game board populates with the six adjectives with the green 'correct letter' animation. Once the animation has ended, "Happy Mothers Day" appears underneath.
 
 **Link to project:** https://mdwordle.netlify.app
 
@@ -9,11 +9,13 @@ Disguised as an everyday wordle, there are six levels with each word being an ad
 
 **Tech used:** HTML, CSS & JavaScript
 
-The board is made in-situ using JavaScript and words are selected randomly from an external words.js array. Wordle uses keyup event listeners to allow keyboard input and logic to determine letters that match the randomly selected word. A countdown timer was implemented depending on which time selected and will countdown. Progression to the next level occurs when the right answer is obtained. Wordle matches each word input to the words.js array and if the word is not present then a modal pops up saying that the word is not in the list. This modal was created using a CSS library called Toastr. Using ChartJS and local storage stats of Wordle are retained and shown in the form of a bar chart. This shows highschores for each mode alongside how many guesses it took for each level. 
+The board is made in-situ using JavaScript and words are selected from an external words.js array. Wordle uses keyup event listeners to allow keyboard input and logic to determine letters that match the randomly selected word. For this version there are 6 levels each word corresponding to an adjective to describe my mum. Once a level is completed a win modal pops up to progress to the next level. Play continues until you reach the final level where 'stats' can be viewed. The final page shows all of the adjectives in the Wordle game board as they animate green column by column using setTimeouts.
+
+The code must be ran using Live Server.
 
 ## Optimizations
 
-Other additions I would like to make is an arcade version where if you get a word correct it would add time to your time remaining. Depending on how quick you got it, more time is added. Fully implement a dark mode, at the moment the button is there for it but it is not functional. 
+Further optimizations I would like to implement would be converting this into a web app where people can customize the words themselves and the message at the end and then send it to someone. Essentially a dynamic card.
 
 ## Lessons Learned:
 
