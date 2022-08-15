@@ -17,6 +17,6 @@ Other additions I would like to make is an arcade version where if you get a wor
 
 ## Lessons Learned:
 
-- [x] How to use ChartJS
-- [x] Implementing a countdown 
-- [x] Using local storage to store scoresA Mothers' Day Wordle
+- [x] Using Live Server
+- [x] Animating using Promises
+- [x] Toastr CSS library
